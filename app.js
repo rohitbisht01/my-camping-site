@@ -21,6 +21,7 @@ db.once("open", () => {
 });
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -158,6 +159,6 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", { err });
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Listening to port 3000");
 });
